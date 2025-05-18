@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
+import useTitle from "../hooks/useTitle";
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  useTitle("Home");
+  return <div>Home</div>;
+};
 
-export default Home
+export default Home;
