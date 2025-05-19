@@ -27,6 +27,8 @@ const AddCoffee = () => {
             title: "Coffee Added Successfully",
             icon: "success",
             draggable: true,
+            showConfirmButton: false,
+            timer: 1500,
           });
           form.reset();
         }
@@ -39,100 +41,123 @@ const AddCoffee = () => {
         backgroundImage: `url(${bg})`,
       }}
     >
-      <div className="w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         <Link
           to="/"
-          className="flex items-center text-shadow-lg/20 text-[#374151] gap-2 py-12"
+          className="flex items-center text-[#374151] gap-2 py-8 md:py-12"
         >
-          <IoMdArrowBack size={30} />
-          <span className="text-3xl"> Back To Home</span>
+          <IoMdArrowBack size={24} className="md:size-6" />
+          <span className="text-xl md:text-2xl lg:text-3xl text-shadow-lg">
+            Back To Home
+          </span>
         </Link>
-        <div className="py-[70px] px-[112px] bg-[#F4F3F0]">
-          <h2 className="text-[45px] text-center font-bold text-[#374151] text-shadow-lg/20 mb-8">
+
+        <div className="py-8 md:py-12 px-4 md:px-8 lg:px-20 bg-[#F4F3F0] rounded-md shadow-md">
+          <h2 className="text-2xl md:text-4xl lg:text-[45px] text-center font-bold text-[#374151] text-shadow-lg mb-4 md:mb-8">
             Add New Coffee
           </h2>
-          <p className="raleway text-center text-[#1B1A1AB2]/70 text-lg">
+          <p className="raleway text-center text-[#1B1A1AB2]/70 text-base md:text-lg leading-relaxed">
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout. The point
             of using Lorem Ipsum is that it has a more-or-less normal
             distribution of letters, as opposed to using Content here.
           </p>
+          {/* Form Starts Here */}
           <form onSubmit={handleAddCoffee} className="mt-8">
-            <div className="grid">
-              <fieldset className="fieldset col-span-1 border-base-300 rounded-box w-full px-4">
-                <label className="text-xl raleway text-[#1B1A1A]/80">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  className="input raleway w-full"
-                  placeholder="Enter coffee supplier"
-                />
-
-                <label className="text-xl raleway text-[#1B1A1A]/80">
-                  Category
-                </label>
-                <input
-                  type="text"
-                  name="category"
-                  className="input raleway w-full"
-                  placeholder="Enter coffee category "
-                />
-
-                <label className="text-xl raleway text-[#1B1A1A]/80">
-                  Supplier
-                </label>
-                <input
-                  type="text"
-                  name="supplier"
-                  className="input raleway w-full"
-                  placeholder="Enter coffee supplier"
-                />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Column 1 */}
+              <fieldset className="space-y-4">
+                <div>
+                  <label className="text-lg font-semibold raleway text-[#1B1A1A]/80">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    className="input raleway w-full"
+                    placeholder="Enter coffee name"
+                  />
+                </div>
+                <div>
+                  <label className="text-lg font-semibold raleway text-[#1B1A1A]/80">
+                    Price
+                  </label>
+                  <input
+                    type="number"
+                    name="price"
+                    className="input raleway w-full"
+                    placeholder="Enter coffee price"
+                  />
+                </div>
+                <div>
+                  <label className="text-lg font-semibold raleway text-[#1B1A1A]/80">
+                    Supplier
+                  </label>
+                  <input
+                    type="text"
+                    name="supplier"
+                    className="input raleway w-full"
+                    placeholder="Enter coffee supplier"
+                  />
+                </div>
               </fieldset>
-              <fieldset className="fieldset border-base-300 rounded-box col-span-1 px-4">
-                <label className="text-xl raleway text-[#1B1A1A]/80">
-                  Quantity
-                </label>
-                <input
-                  type="number"
-                  name="quantity"
-                  className="input raleway w-full"
-                  placeholder="Enter coffee chef"
-                />
 
-                <label className="text-xl raleway text-[#1B1A1A]/80">
-                  Taste
-                </label>
-                <input
-                  type="text"
-                  name="taste"
-                  className="input raleway w-full"
-                  placeholder="Enter coffee taste"
-                />
-
-                <label className="text-xl raleway text-[#1B1A1A]/80">
-                  Details
-                </label>
-                <input
-                  type="text"
-                  name="details"
-                  className="input raleway w-full"
-                  placeholder="Enter coffee details"
-                />
+              {/* Column 2 */}
+              <fieldset className="space-y-4">
+                <div>
+                  <label className="text-lg font-semibold raleway text-[#1B1A1A]/80">
+                    Quantity
+                  </label>
+                  <input
+                    type="number"
+                    name="quantity"
+                    className="input raleway w-full"
+                    placeholder="Enter coffee quantity"
+                  />
+                </div>
+                <div>
+                  <label className="text-lg font-semibold raleway text-[#1B1A1A]/80">
+                    Taste
+                  </label>
+                  <input
+                    type="text"
+                    name="taste"
+                    className="input raleway w-full"
+                    placeholder="Enter coffee taste"
+                  />
+                </div>
+                <div>
+                  <label className="text-lg font-semibold raleway text-[#1B1A1A]/80">
+                    Details
+                  </label>
+                  <input
+                    type="text"
+                    name="details"
+                    className="input raleway w-full"
+                    placeholder="Enter coffee details"
+                  />
+                </div>
               </fieldset>
-              <fieldset className="fieldset border-base-300 rounded-box w-full col-span-2 px-4">
-                <label className="text-xl raleway text-[#1B1A1A]/80">
+
+              {/* Full width field */}
+              <fieldset className="md:col-span-2">
+                <label className="text-lg font-semibold raleway text-[#1B1A1A]/80">
                   Photo URL
                 </label>
                 <input
                   type="text"
                   name="photo"
-                  className="input raleway w-full"
-                  placeholder="Photo URL"
+                  className="input raleway w-full mt-2"
+                  placeholder="Enter photo URL"
                 />
               </fieldset>
-              <button className="bg-[#D2B48C] text-2xl rounded-sm border-2 border-black cursor-pointer col-span-2 py-3.25 mt-6 mx-4">
+            </div>
+            {/* Button */}
+            <div className="text-center mt-8">
+              <button
+                type="submit"
+                className="w-full bg-[#D2B48C] hover:bg-[#c8a877] transition duration-200 text-xl md:text-2xl font-semibold rounded-md border-2 border-black p-2"
+              >
                 Add Coffee
               </button>
             </div>

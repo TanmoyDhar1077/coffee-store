@@ -10,11 +10,15 @@ const router = createBrowserRouter([
     Component: Root,
     errorElement: <div>Page not found</div>,
     children: [
-      { index: true, Component: Home },
-      {path: "/addCoffee", Component: AddCoffee },
-      {path: "/updateCoffee", Component: UpdateCoffee },
-      
-]},
+      {
+        index: true,
+        loader: () => fetch("http://localhost:3000/coffees"),
+        Component: Home,
+      },
+      { path: "/addCoffee", Component: AddCoffee },
+      { path: "/updateCoffee", Component: UpdateCoffee },
+    ],
+  },
 ]);
 
 export default router;
